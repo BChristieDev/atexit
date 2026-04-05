@@ -1,0 +1,46 @@
+{
+  "name": "atexit",
+  "version": "1.0.0",
+  "description": "Register functions to be called at process termination",
+  "keywords": [
+    "atexit"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BChristieDev/atexit.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Brandon Christie",
+    "email": "bchristie.dev@gmail.com"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "main": "./dist/esm/index.js",
+  "files": [
+    "./dist/**/*",
+    "./types/**/*",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "prepublishOnly": "npm run test",
+    "test": "node --import tsx --test tests/**/*",
+    "preversion": "npm run test",
+    "postversion": "git push && git push origin tag v$npm_package_version"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2"
+  }
+}
