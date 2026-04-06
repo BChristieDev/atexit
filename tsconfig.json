@@ -19,7 +19,6 @@
 
     // Emit
     "declaration": true,
-    "declarationDir": "./types",
     "declarationMap": true,
     "noEmit": true,
     "sourceMap": true,

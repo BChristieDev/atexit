@@ -3,6 +3,7 @@
     "include": [ "./src/**/*" ],
     "compilerOptions": {
         "module": "commonjs",
+        "declarationDir": "./dist/cjs/types",
         "noEmit": false,
         "outDir": "./dist/cjs",
         "verbatimModuleSyntax": false

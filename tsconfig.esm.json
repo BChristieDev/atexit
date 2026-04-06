@@ -2,6 +2,7 @@
     "extends": "./tsconfig.json",
     "include": [ "./src/**/*" ],
     "compilerOptions": {
+        "declarationDir": "./dist/esm/types",
         "noEmit": false,
         "outDir": "./dist/esm"
     }
