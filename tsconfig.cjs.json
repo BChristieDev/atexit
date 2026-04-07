@@ -3,6 +3,7 @@
     "include": [ "./src/**/*" ],
     "compilerOptions": {
         "module": "commonjs",
+        "rootDir": "./src",
         "declarationDir": "./dist/cjs/types",
         "noEmit": false,
         "outDir": "./dist/cjs",
