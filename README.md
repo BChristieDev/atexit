@@ -63,14 +63,19 @@ Returns number of function in the atexit call stack.
 ### Register
 
 ```ts
-atexit.register(console.log, 1);
-atexit.register(console.log, 2);
-atexit.register(console.log, 3);
+import * as fs from 'node:fs';
+import * as atexit from 'atexit';
+
+const file = '/tmp/example.txt';
+
+atexit.register(fs.appendFileSync, file, '1\n');
+atexit.register(fs.appendFileSync, file, '2\n');
+atexit.register(fs.appendFileSync, file, '3\n');
 ```
 
-Outputs:
+File Contents:
 
-```sh
+```txt
 3
 2
 1
@@ -79,17 +84,26 @@ Outputs:
 ### Unregister
 
 ```ts
-atexit.register(console.log, 1);
-atexit.register(console.error, 2);
-atexit.register(console.log, 3);
+import * as fs from 'node:fs';
+import * as atexit from 'atexit';
 
-atexit.unregister(console.log);
+const file = '/tmp/example.txt';
+
+atexit.register(fs.appendFileSync, file, '1\n');
+atexit.register(fs.appendFileSync, file, '2\n');
+atexit.register(fs.appendFileSync, file, '3\n');
+
+atexit.unregister(fs.appendFileSync);
+
+atexit.register(fs.appendFileSync, file, '4\n');
+atexit.register(fs.appendFileSync, file, '5\n');
 ```
 
-Outputs:
+File Contents:
 
-```sh
-2
+```txt
+5
+4
 ```
 
 ## Maintainers
