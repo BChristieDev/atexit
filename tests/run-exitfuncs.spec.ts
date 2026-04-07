@@ -5,7 +5,7 @@
 
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { _ncallbacks, _run_exitfuncs, register } from '../src/atexit.js';
+import { _ncallbacks, _run_exitfuncs, register } from '../src/index.js';
 
 test('Call exit handlers', () => {
     const foo: number[] = [];

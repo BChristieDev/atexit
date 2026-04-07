@@ -5,7 +5,7 @@
 
 import assert from 'assert/strict';
 import { test } from 'node:test';
-import { _ncallbacks, _run_exitfuncs, register, unregister } from '../src/atexit.js';
+import { _ncallbacks, _run_exitfuncs, register, unregister } from '../src/index.js';
 
 test('Unregister an exit handler', () => {
     const foo = [ false ];

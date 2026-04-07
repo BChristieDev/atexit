@@ -1,5 +1,5 @@
 /**
- * @file       src/atexit.ts
+ * @file       src/index.ts
  * @author     Brandon Christie <bchristie.dev@gmail.com>
  */
 
