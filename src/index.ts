@@ -8,7 +8,7 @@ type ExitHandler<T extends ExitFunc> = readonly [T, Parameters<T>];
 
 const exitHandlers: ExitHandler<any>[] = [];
 
-process.on('exit', () => _run_exitfuncs);
+process.on('exit', () => _run_exitfuncs());
 
 /**
  * Clears all functions from the atexit call stack.
