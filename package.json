@@ -37,8 +37,8 @@
   ],
   "scripts": {
     "build": "npm run build:cjs && npm run build:esm",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "npx tsc -p tsconfig.cjs.json",
+    "build:esm": "npx tsc -p tsconfig.esm.json",
     "prepublishOnly": "npm run test",
     "test": "node --import tsx --test tests/**/*",
     "preversion": "npm run test",
