@@ -32,6 +32,7 @@
   "types": "./dist/esm/types/index.d.ts",
   "files": [
     "./dist/**/*",
+    "!**/*.tsbuildinfo",
     "LICENSE",
     "README.md"
   ],
