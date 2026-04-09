@@ -1,5 +1,5 @@
 {
-  "name": "atexit",
+  "name": "atexit.js",
   "version": "1.0.1",
   "description": "Register functions to be called at process termination",
   "keywords": [
