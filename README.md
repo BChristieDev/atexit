@@ -56,7 +56,7 @@ Calls all functions in the atexit call stack then clears it.<br><br>
 atexit._ncallbacks()
 ```
 
-Returns number of function in the atexit call stack.
+Returns number of functions in the atexit call stack.
 
 ## Examples
 
