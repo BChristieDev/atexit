@@ -1,5 +1,5 @@
+.npmrc
 .vscode
 dist
 node_modules
-.npmrc
 tmp

@@ -2,7 +2,7 @@
     <h1>atexit.js</h1>
     <h4>Register functions to be called at process termination</h4>
     <p>
-        <a href="https://github.com/BChristieDev/atexit/actions/workflows/ci.yml"><img src="https://github.com/BChristieDev/atexit/actions/workflows/ci.yml/badge.svg"></a>
+        <a href="https://github.com/BChristieDev/atexit.js/actions/workflows/ci.yml"><img src="https://github.com/BChristieDev/atexit.js/actions/workflows/ci.yml/badge.svg"></a>
         <a href="https://www.npmjs.com/package/atexit.js"><img src="https://badge.fury.io/js/atexit.js.svg"></a>
     </p>
     <p>
