@@ -37,7 +37,9 @@
     "README.md"
   ],
   "scripts": {
+    "prebuild": "rm -rf dist/",
     "build": "npm run build:cjs && npm run build:esm",
+    "postbuild": "printf '{\n  \"type\": \"commonjs\"\n}\n' >dist/cjs/package.json",
     "build:cjs": "npx tsc -p tsconfig.cjs.json",
     "build:esm": "npx tsc -p tsconfig.esm.json",
     "prepublishOnly": "npm run test",
