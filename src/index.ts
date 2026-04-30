@@ -3,10 +3,10 @@
  * @author     Brandon Christie <bchristie.dev@gmail.com>
  */
 
-type ExitFunc = (...args: any[]) => void;
-type ExitHandler<T extends ExitFunc> = readonly [T, Parameters<T>];
+type ExitFn = (...args: any[]) => void;
+type ExitHandler = readonly [ExitFn, Parameters<ExitFn>];
 
-const exitHandlers: ExitHandler<any>[] = [];
+const exitHandlers: ExitHandler[] = [];
 
 process.on('exit', () => _run_exitfuncs());
 
@@ -29,11 +29,11 @@ function _run_exitfuncs()
 
     for (let i = exitHandlers.length - 1; i >= 0; i--)
     {
-        const [ func, args ] = exitHandlers[i]!;
+        const [ fn, args ] = exitHandlers[i]!;
 
         try
         {
-            func(...args);
+            fn(...args);
         }
         catch (e)
         {
@@ -55,26 +55,26 @@ function _ncallbacks(): number
 /**
  * Registers a function to the atexit call stack to be called at process termination.
  * 
- * @param func Function to be added to the atexit call stack.
- * @param args Arguments to be passed to `func`.
+ * @param fn Function to be added to the atexit call stack.
+ * @param args Arguments to be passed to `fn`.
  */
-function register<T extends ExitFunc>(func: T, ...args: Parameters<T>)
+function register<T extends ExitFn>(fn: T, ...args: Parameters<T>)
 {
-    exitHandlers.push([func, args]);
+    exitHandlers.push([fn, args]);
 }
 
 /**
  * Unregisters all references of a function from the atexit call stack.
  * 
- * @param func Function to be removed from the atexit call stack.
+ * @param fn Function to be removed from the atexit call stack.
  */
-function unregister(func: ExitFunc)
+function unregister(fn: ExitFn)
 {
     if (!exitHandlers.length) return;
 
     for (let i = exitHandlers.length - 1; i >= 0; i--)
     {
-        if (exitHandlers[i]![0] === func)
+        if (exitHandlers[i]![0] === fn)
             exitHandlers.splice(i, 1);
     }
 }

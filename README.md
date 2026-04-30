@@ -24,21 +24,21 @@ $ npm i atexit.js
 ## Functions
 
 ```ts
-atexit.register(func, ...args)
+atexit.register(fn, ...args)
 ```
 
 Registers a function to the atexit call stack to be called at process termination.
 
-- `func`: function to be added to atexit call stack.
-- `...args`: arguments to be passed to `func`.<br><br>
+- `fn`: function to be added to atexit call stack.
+- `...args`: arguments to be passed to `fn`.<br><br>
 
 ```ts
-atexit.unregister(func)
+atexit.unregister(fn)
 ```
 
 Unregisters all references of a function from the atexit call stack.
 
-- `func`: function to be removed from the atexit call stack.<br><br>
+- `fn`: function to be removed from the atexit call stack.<br><br>
 
 ```ts
 atexit._clear()
